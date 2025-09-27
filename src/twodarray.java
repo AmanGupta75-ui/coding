@@ -13,6 +13,7 @@ public class twodarray {
         int [][] arr=new int[2][2];
         arr[0][0]=16;
         arr[0][1]=15;
+        System.out.println();
 
 
 
