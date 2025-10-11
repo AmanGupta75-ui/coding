@@ -16,8 +16,9 @@ public class first {
 
     }
 }
-  class student{
-    int rollnumber;
-    String name;
-    float marks;
+  class student {
+      int rollnumber;
+      String name;
+      float marks;
+
   }
