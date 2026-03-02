@@ -16,14 +16,7 @@ import java.util.*;
 
 
 
-    class m{
 
-        int Add;
-
-        void main(int add) {
-            Add = add;
-        }
-    }
 
 
 
