@@ -17,6 +17,7 @@ public class methods1 {
         summation();
         int n=sc.nextInt();
         int a;
+        int b;
     }
 }
 
