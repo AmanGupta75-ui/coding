@@ -1,39 +1,102 @@
 package linkedlist;
+
+import java.util.Scanner;
+
 class Node{
     int data;
     Node next;
-}
-
-public class main {
-     public static void main(String[] args) {
-         Node n1=new Node();
-         System.out.println(n1);
-         n1.data=10;
-         System.out.println(n1.next);
-         Node n2=new Node();
-         n1.next=n2;
-         System.out.println(n2.data);
-
-         n2.data=20;
-         System.out.println(n2);
-         System.out.println(n1.next);
-
-         Node n3=new Node();
-         n2.next=n3;
-         System.out.println(n3.data);
-         n3.data=30;
-         System.out.println(n3);
-         System.out.println(n2.data);
-         System.out.println(n1.next.next);
-         Node n4=new Node();
-         n4.next=n3;
-         System.out.println(n4.data);
-         n4.data=20;
-         System.out.println(n4);
- 
-
-
-
+    Node(int data)
+    {
+        this.data=data;
 
     }
 }
+
+public class main {
+
+
+
+    public static Node removeKthPosition(Node head,int k)
+    {
+        if(head == null) return null;
+        if(k==1) return head.next;
+        int count =0;
+        Node prev = null;
+        Node temp = head;
+
+        while(temp!=null)
+        {   count++;
+            if(count ==k)
+            {
+                prev.next = temp.next;
+                break;
+            }
+            prev =temp;
+            temp=temp.next;
+        }
+        return head;
+
+    }
+
+    public static Node removeByValue(Node head,int value)
+    {
+        if(head == null) return null;
+        if(value==1) return head.next;
+        // int count =0;
+        Node prev = null;
+        Node temp = head;
+
+        while(temp!=null)
+        {
+            if(temp.data ==value)
+            {
+                prev.next = temp.next;
+                break;
+            }
+            prev =temp;
+            temp=temp.next;
+        }
+        return head;
+
+    }
+
+
+
+
+    public static Node convertToLL(int [] arr) {
+        int n = arr.length;
+        Node n1 = new Node(arr[0]);
+        Node head = n1;
+        for (int i = 1; i < n; i++) {
+            Node temp = new Node(arr[i]);
+            n1.next = temp;
+            n1 = temp;
+        }
+        return head;
+    }
+    public static void display(Node head){
+        Node temp = head;
+        while(temp != null){
+            System.out.print( " -> "+ temp.data);
+            temp = temp.next;
+        }
+    }
+
+    public static void main(String[] args)
+    {   Scanner sc = new Scanner(System.in);
+        int[] arr = {12,23,3,1,5,7,3};
+        Node head = convertToLL(arr);
+        display(head);
+        System.out.println();
+
+
+        //  int k = sc.nextInt();
+        int value = sc.nextInt();
+        // head = removeKthPosition(head,k);
+        head = removeByValue(head,value);
+        display(head);
+    }
+}
+
+
+
